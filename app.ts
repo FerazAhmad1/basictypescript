@@ -2,7 +2,7 @@ const num1 = document.getElementById('num1') as HTMLInputElement;
 const num2 = document.getElementById('num2') as HTMLInputElement;
 const addButton = document.getElementById('addbutton')!
 
-const textResultArr:string[] = []
+const textResultArr:Array<string> = []
 const numbResultArr: number[] = []
 type numbORstring = number | string;   // type alias  
 type ResultObj = { val: number; timeStamp:Date} // type alias
@@ -36,4 +36,11 @@ addButton?.addEventListener('click', (e) => {
     console.log(numbResultArr,textResultArr)
 })
 
-
+const myPromise = new Promise<string>((resolve, reject) => {
+    setTimeout(() => {
+        resolve('It worked')
+    },1000)
+})
+const result = myPromise.then((result) => {
+   console.log(result.split('w'))
+})
